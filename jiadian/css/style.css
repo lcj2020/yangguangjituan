@@ -735,14 +735,6 @@ footer a:hover { color: white; text-decoration: none; }
         grid-template-columns: repeat(2, 1fr); /* 再次强调是两列 */
         gap: 10px; /* 例如，在768px下，间距可以更小一些 */
     }
-    /* 也可以在这里进一步微调 .product-category-grid-two-columns .category-item-card 的样式 */
-    .product-category-grid-two-columns .category-item-card {
-        /* padding: 10px 6px; */ /* 可选：进一步减小内边距 */
-        /* min-height: 80px; */
-    }
-    .product-category-grid-two-columns .category-item-card p {
-        /* font-size: 0.75em; */ /* 可选：进一步减小字体 */
-    }
 
     .admissions-section div[style*="flex:1"],
     .special-bg-section div[style*="flex:1"] { min-width: 100%; }
