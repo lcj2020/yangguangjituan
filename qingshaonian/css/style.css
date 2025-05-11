@@ -1,0 +1,965 @@
+/* === START: ORIGINAL style.css CONTENT === */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FAFAFA; /* 非常浅的灰色背景 */
+    color: #424242; /* 深灰色文本 */
+    line-height: 1.7;
+    font-size: 16px; /* 基础字号 */
+}
+
+.container {
+    width: 90%;
+    max-width: 1080px; /* 略微加宽 */
+    margin: 25px auto;
+    padding: 20px 25px;
+    background-color: #FFFFFF;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+    border-radius: 10px; /* 更大的圆角 */
+}
+
+header {
+    background: linear-gradient(135deg, #FFA726 0%, #FF7043 100%); /* 温暖的橙色渐变 */
+    color: white;
+    padding: 2em 1em; /* 增加内边距 */
+    text-align: center;
+    border-radius: 10px 10px 0 0; /* 配合容器的圆角 */
+}
+header img.logo {
+    height: 50px;
+    margin-bottom: 10px;
+}
+header h1 {
+    margin: 0;
+    font-size: 2.4em; /* 更醒目的标题 */
+    font-weight: 700; /* 更粗的字体 */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+header p.subtitle {
+    font-size: 1.1em;
+    opacity: 0.9;
+    margin-top: 5px;
+    font-weight: 300;
+}
+
+
+nav {
+    background-color: #FFF9C4; /* 浅米黄色导航背景 */
+    padding: 10px 0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.06);
+    border-bottom: 3px solid #FFB74D; /* 橙色下边框，增加层次 */
+}
+
+nav ul.nav-row {
+    list-style-type: none;
+    padding: 0 5px;
+    margin: 2px auto; /* 减小行间距 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul.nav-row li {
+    margin: 0 4px; /* 导航项间距 */
+}
+
+nav ul.nav-row li a {
+    color: #E65100; /* 深橙色导航文字 */
+    text-decoration: none;
+    padding: 10px 16px; /* 按钮内边距 */
+    display: block;
+    font-weight: 600; /* 导航文字加粗 */
+    border-radius: 25px; /* 药丸形状 */
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 0.95em;
+}
+
+nav ul.nav-row li a:hover {
+    background-color: #FFB74D; /* 悬停时用稍浅的橙色 */
+    color: white;
+    transform: translateY(-2px);
+}
+
+nav ul.nav-row li a.active {
+    background-color: #FF7043; /* 激活时用更鲜明的橙色 */
+    color: white;
+    box-shadow: 0 2px 5px rgba(255, 112, 67, 0.4);
+}
+
+.section {
+    margin-bottom: 45px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #f0f0f0; /* 更浅的分隔线 */
+}
+.section:last-child {
+    border-bottom: none;
+}
+
+.section-title {
+    font-size: 2em; /* 标题更突出 */
+    color: #FF7043; /* 橙色标题 */
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #4DB6AC; /* 青色下划线，形成对比 */
+    font-weight: 700;
+    display: inline-block;
+    text-align: center; /* 标题居中显示 */
+    width: 100%; /* 让标题下划线撑满 */
+    box-sizing: border-box;
+}
+.section-title::after { /* 给标题加点装饰 */
+    content: " ✨"; /* 或者其他适合的 emoji 或 SVG 图标 */
+}
+
+
+.banner-swiper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.banner-text {
+    text-align: center;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.core-advantages, .quick-nav { /* 统一部分样式 */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 响应式列 */
+    gap: 25px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.advantage-item, .nav-button { /* 统一卡片样式 */
+    padding: 25px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    background-color: #fff; /* 确保有背景色 */
+}
+.advantage-item:hover, .nav-button:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.advantage-item img, .nav-button img {
+    width: 60px; /* 统一图标大小 */
+    height: 60px;
+    margin-bottom: 15px;
+    object-fit: contain; /* 确保图标不变形 */
+}
+.advantage-item p, .nav-button {
+    margin:0;
+    font-size: 1.05em;
+    font-weight: 500;
+}
+.nav-button { /* 特指快速导航按钮的文字颜色和decoration */
+    text-decoration: none;
+    color: #FF7043; /* 橙色文字 */
+}
+.nav-button:hover {
+    background-color: #FF9800; /* 悬停时橙色背景 */
+    color: white;
+}
+
+
+.facility-gallery, .showcase-gallery { /* 用于设施和风采展示的网格 */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+.facility-item, .showcase-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+.facility-item img, .showcase-item img {
+    width: 100%;
+    height: 200px; /* 固定高度 */
+    object-fit: cover; /* 图片裁剪以填充 */
+    display: block;
+    transition: transform 0.3s ease;
+}
+.facility-item:hover img, .showcase-item:hover img {
+    transform: scale(1.08);
+}
+.facility-item-caption, .showcase-item-caption {
+    padding: 15px;
+    text-align: center;
+}
+.facility-item-caption h4, .showcase-item-caption h4 {
+    margin: 0 0 8px 0;
+    color: #29B6F6; /* 浅蓝色标题 */
+    font-size: 1.2em;
+}
+.facility-item-caption p, .showcase-item-caption p {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
+}
+
+
+.info-item {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+.info-label {
+    font-weight: 600;
+    color: #E65100; /* 深橙色标签 */
+    margin-right: 8px;
+}
+
+.highlight {
+    color: #29B6F6; /* 浅蓝色高亮 */
+    font-weight: bold;
+    /* background-color: #E1F5FE; padding: 0.1em 0.4em; border-radius: 4px; */
+}
+
+button, .button-link {
+    background-color: #FFA726; /* 主橙色 */
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px; /* 更大的圆角 */
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.1em; /* 按钮字号稍大 */
+    font-weight: 600;
+    box-shadow: 0 3px 8px rgba(255, 167, 38, 0.4);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+button:hover, .button-link:hover {
+    background-color: #FF7043; /* 更鲜明的橙色 */
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 5px 15px rgba(255, 112, 67, 0.5);
+}
+
+button.secondary, .button-link.secondary { /* 次要按钮 */
+    background-color: #4DB6AC; /* 青色 */
+    box-shadow: 0 3px 8px rgba(77, 182, 172, 0.4);
+}
+button.secondary:hover, .button-link.secondary:hover {
+    background-color: #26A69A; /* 深一点的青色 */
+    box-shadow: 0 5px 15px rgba(38, 166, 154, 0.5);
+}
+
+/* 课程与服务列表 */
+.course-categories {
+    list-style: none;
+    padding-left: 0;
+}
+.course-category {
+    margin-bottom: 25px;
+}
+.course-category-title {
+    background: linear-gradient(to right, #4DB6AC, #80CBC4); /* 青色渐变 */
+    color: white;
+    padding: 15px 20px;
+    font-size: 1.4em;
+    font-weight: 600;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.course-category-title::after { /* 展开/收起图标 */
+    content: '▼';
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+/* .course-category.open .course-category-title::after { transform: rotate(180deg); } */
+.course-list {
+    list-style: none;
+    padding: 15px 20px 20px 25px;
+    background-color: #F8F8F8; /* 列表背景稍有区分 */
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    /* display: none; */ /* JS控制显示，如果做折叠 */
+}
+.course-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #d0d0d0;
+    color: #555;
+    font-size: 1.05em;
+}
+.course-list li:last-child { border-bottom: none; }
+.course-list li strong { color: #FF9800; } /* 课程名称用橙色 */
+
+/* FAQ 样式 */
+.faq-item {
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.faq-question {
+    background-color: #FFFDE7; /* 浅米黄色 */
+    padding: 12px 15px;
+    font-weight: bold;
+    color: #E65100; /* 深橙色 */
+    cursor: pointer;
+}
+.faq-answer {
+    padding: 15px;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    /* display: none; */ /* JS控制显示 */
+}
+
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: #FFA726; /* 橙色页脚 */
+    color: white;
+    margin-top: 40px;
+    font-size: 0.95em;
+}
+footer p {
+    margin: 8px 0;
+}
+footer a {
+    color: #FFFDE7;
+    text-decoration: underline;
+}
+footer a:hover {
+    color: white;
+}
+/* === END: ORIGINAL style.css CONTENT === */
+
+
+/* === START: NEW STYLES for Comprehensive Content (Added by AI) === */
+
+/* == B. Brand Projects Section == */
+.brand-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns for project centers */
+    gap: 25px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.project-center-card {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+    padding: 25px 20px;
+    transition: all 0.3s ease;
+    display: flex; /* For better internal alignment */
+    flex-direction: column; /* Stack content vertically */
+}
+
+.project-center-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.project-center-card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #FFA726; /* Consistent accent */
+}
+
+.project-center-card-header img.icon {
+    width: 36px; /* Slightly larger icon for card titles */
+    height: 36px;
+    margin-right: 12px;
+    object-fit: contain;
+}
+
+.project-center-card-header h3 {
+    color: #FF7043; /* Main accent color for titles */
+    margin: 0;
+    font-size: 1.6em; /* Prominent title */
+    font-weight: 700;
+}
+
+.project-center-card .project-intro {
+    font-size: 1.0em; /* Standard intro text */
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.project-center-card .sub-project-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 10px;
+    flex-grow: 1; /* Allow list to take available space */
+}
+
+.project-center-card .sub-project-list li {
+    padding: 10px 5px;
+    border-bottom: 1px dashed #e0e0e0;
+    font-size: 0.95em;
+    color: #424242;
+}
+.project-center-card .sub-project-list li:last-child {
+    border-bottom: none;
+}
+
+.project-center-card .sub-project-list li strong { /* Sub-project title */
+    color: #E65100; /* Darker orange for emphasis */
+    display: block; /* Make strong take full width */
+    margin-bottom: 4px;
+    font-size: 1.05em;
+}
+.project-center-card .sub-project-list li span.age-range {
+    font-size: 0.9em;
+    color: #757575;
+    display: block; /* Show age range on new line or style as needed */
+    margin-top: 2px;
+}
+.project-center-card .sub-project-list li span.details {
+    font-size: 0.9em;
+    color: #666;
+    display: block;
+    margin-top: 3px;
+    line-height: 1.5;
+}
+
+
+/* -- Specific for Academic Center (Wenfu) - Accordion style for course categories -- */
+/* Reusing .course-category, .course-category-title, .course-list from existing style.css for consistency */
+/* If different styling is needed, define new classes like .academic-course-category */
+/* Example: Make AI智学项目 more prominent if needed */
+.ai-learning-highlight {
+    background-color: #FFF9C4; /* Light yellow highlight */
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    border: 1px solid #FFECB3;
+}
+.ai-learning-highlight h4 {
+    color: #E65100;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+.ai-learning-highlight ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+.ai-learning-highlight ul li {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+
+/* -- Specific for Quality Center (Suzhi) - Highlighted sub-projects -- */
+.quality-sub-project-card {
+    background-color: #F8F8F8; /* Slightly different background for distinction */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.04);
+}
+.quality-sub-project-card:last-child {
+    margin-bottom: 0;
+}
+
+.quality-sub-project-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.quality-sub-project-header img.icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+    object-fit: contain;
+}
+.quality-sub-project-header h4 {
+    color: #00796B; /* Teal color for quality project titles */
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+.quality-sub-project-content {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column for content */
+    gap: 15px;
+}
+/* If image is desired next to text for sub-projects: */
+/*
+.quality-sub-project-content.with-image {
+    grid-template-columns: auto 1fr; // Image on left, text on right
+    align-items: center;
+}
+.quality-sub-project-content img.project-showcase-image {
+    width: 150px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 15px; // If side-by-side
+}
+*/
+.quality-sub-project-card p,
+.quality-sub-project-card ul {
+    font-size: 0.95em;
+    color: #454545;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+.quality-sub-project-card ul {
+    list-style: disc; /* Or none, or custom icons */
+    padding-left: 25px;
+}
+.quality-sub-project-card ul li {
+    margin-bottom: 5px;
+}
+.quality-sub-project-card .sub-item-title { /* e.g., "射击项目的好处", "项目内容" */
+    font-weight: bold;
+    color: #26A69A; /* Darker teal */
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+/* == C. Learning Services (Teachers & Students) == */
+.staff-grid, .students-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Responsive cards */
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.staff-card, .student-card {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.staff-card:hover, .student-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 7px 18px rgba(0,0,0,0.1);
+}
+
+.staff-card img.profile-pic, .student-card img.profile-pic {
+    width: 100px; /* Adjust size as needed */
+    height: 100px;
+    border-radius: 50%; /* Circular images */
+    object-fit: cover;
+    margin: 0 auto 15px auto; /* Center image */
+    border: 4px solid #FFA726; /* Accent border */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.staff-card h4, .student-card h4 { /* Name */
+    margin: 0 0 8px 0;
+    font-size: 1.35em;
+    color: #E65100; /* Dark orange for name */
+    font-weight: 600;
+}
+
+.staff-card p.title-org, /* Teacher's title */
+.student-card p.achievement { /* Student's achievement */
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    flex-grow: 1; /* Allow this part to grow to align footers if any */
+}
+
+.staff-card .staff-details {
+    font-size: 0.9em;
+    color: #666;
+    text-align: left;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
+    margin-top: auto; /* Push to bottom */
+}
+.staff-card .staff-details p {
+    margin-bottom: 5px;
+}
+.staff-card .staff-details strong {
+    color: #424242;
+}
+
+/* == D. Service Features (One-stop service, environment etc.) == */
+/* Can reuse .core-advantages and .advantage-item if styling is similar */
+/* Or create new ones like .service-features-grid and .feature-item */
+.service-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+.feature-item { /* Based on .advantage-item */
+    padding: 25px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    background-color: #E0F7FA; /* Light cyan background for features */
+}
+.feature-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+.feature-item img.feature-icon {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+.feature-item h4 { /* Feature title */
+    margin:0 0 10px 0;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #00796B; /* Teal for feature titles */
+}
+.feature-item p {
+    margin:0;
+    font-size: 0.95em;
+    color: #37474F; /* Darker text for readability on light cyan */
+    line-height: 1.6;
+}
+
+/* == E. Competition Services == */
+.competition-intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.competition-type-card {
+    background-color: #FFFDE7; /* Light yellow, like FAQ question */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.06);
+}
+.competition-type-card img.icon {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 10px;
+}
+.competition-type-card h4 {
+    margin: 0;
+    color: #E65100; /* Dark orange */
+    font-size: 1.2em;
+}
+
+.competition-list-section h3 { /* "赛事报名", "赛事回顾" */
+    font-size: 1.6em;
+    color: #FF7043;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #FFCC80; /* Light orange dashed line */
+    display: inline-block; /* To make border only under text */
+    width: auto;
+}
+.competition-list {
+    list-style: none;
+    padding-left: 0;
+}
+.competition-item {
+    background-color: #fff;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.07);
+    border-left: 5px solid #4DB6AC; /* Teal accent border */
+    transition: all 0.3s ease;
+}
+.competition-item:hover {
+    border-left-color: #FF7043; /* Change accent on hover */
+    box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+}
+.competition-item h4 {
+    margin: 0 0 8px 0;
+    font-size: 1.25em;
+    color: #26A69A; /* Darker teal */
+}
+.competition-item p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    color: #555;
+}
+.competition-item .button-link { /* For "报名" or "查看详情" */
+    margin-top: 10px;
+    font-size: 0.9em;
+    padding: 8px 18px;
+}
+
+/* == F. Brand Culture == */
+.brand-culture-subsection {
+    background-color: #fff;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+}
+.brand-culture-subsection h3 { /* "企业介绍", "荣誉收派", "企业文化" */
+    font-size: 1.5em;
+    color: #E65100;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #FFB74D; /* Consistent orange accent */
+}
+.brand-culture-subsection p {
+    line-height: 1.7;
+    color: #454545;
+    margin-bottom: 15px;
+}
+.honor-list {
+    list-style: none;
+    padding-left: 0;
+    display: grid; /* For better alignment if multiple honors */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+.honor-list li {
+    background-color: #FFF9E6; /* Very light orange */
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 1.0em;
+    color: #BF360C; /* Darker, desaturated orange */
+    display: flex;
+    align-items: center;
+    border: 1px solid #FFE0B2;
+}
+.honor-list li img.honor-icon { /* If you have icons for honors */
+    width: 28px;
+    height: 28px;
+    margin-right: 12px;
+    opacity: 0.8;
+}
+.corporate-culture-item {
+    margin-bottom: 20px;
+}
+.corporate-culture-item dt, /* For definition list <dt> */
+.corporate-culture-item .culture-item-title { /* For div/p structure */
+    font-weight: bold;
+    color: #FF7043; /* Bright orange for titles like "企业使命" */
+    margin-bottom: 8px;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+}
+.corporate-culture-item .culture-item-title::before { /* Optional decorative element */
+    content: "❖"; /* Example icon */
+    margin-right: 8px;
+    color: #FFA726;
+    font-size: 0.9em;
+}
+.corporate-culture-item dd, /* For definition list <dd> */
+.corporate-culture-item .culture-item-desc {
+    margin-left: 0; /* Reset default dd margin if using dl */
+    color: #555;
+    line-height: 1.6;
+    padding-left: 25px; /* Indent description under title */
+    border-left: 2px solid #FFD180; /* Light orange left border */
+}
+
+/* == G. Discover Highlights (Events) == */
+/* Reusing .showcase-gallery and .showcase-item from existing style.css if suitable */
+/* If a distinct style is needed: */
+.event-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); /* Adjust minmax as needed */
+    gap: 20px;
+}
+.event-item { /* Similar to .showcase-item */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+.event-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 7px 15px rgba(0,0,0,0.12);
+}
+.event-item img {
+    width: 100%;
+    height: 180px; /* Adjust height */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease-out;
+}
+.event-item:hover img {
+    transform: scale(1.06);
+}
+.event-item-caption {
+    padding: 15px;
+    text-align: left; /* Or center if preferred */
+}
+.event-item-caption h4 {
+    margin: 0 0 8px 0;
+    color: #4CAF50; /* Green for event titles, for variety */
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.event-item-caption p {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* == H. Online Services / Contact Section Additions == */
+/* Assuming most will reuse styles from contact.html and existing .info-item, .info-label */
+.contact-grid-extended { /* For multiple contact blocks if needed */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+.contact-block-styled { /* For each distinct contact block (phones, QR, address) */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+}
+.contact-block-styled.phones { background-color: #FFF3E0; /* Light orange */ }
+.contact-block-styled.socials { background-color: #E8F5E9; /* Light green */ }
+.contact-block-styled.address { background-color: #E3F2FD; /* Light blue */ }
+
+.contact-block-styled h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 1.4em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.contact-block-styled.phones h3 { color: #E65100; }
+.contact-block-styled.socials h3 { color: #2E7D32; }
+.contact-block-styled.address h3 { color: #1565C0; }
+
+.contact-block-styled h3 img.icon,
+.contact-block-styled h3 i.icon { /* For FontAwesome or similar */
+    width: 28px; /* Adjust if using actual img */
+    font-size: 24px; /* Adjust if using font icon */
+    margin-right: 10px;
+    text-align: center;
+}
+.contact-block-styled .info-item a {
+    color: #FF7043; /* Make links stand out */
+    text-decoration: none;
+    font-weight: 500;
+}
+.contact-block-styled .info-item a:hover {
+    text-decoration: underline;
+    color: #E65100;
+}
+.qr-codes-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow QR codes to wrap on small screens */
+    gap: 20px;
+    justify-content: center; /* Center QR codes if space allows */
+    margin-top: 15px;
+}
+.qr-code-item {
+    text-align: center;
+}
+.qr-code-item img {
+    width: 130px;
+    height: 130px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 8px;
+}
+.qr-code-item p {
+    font-size: 0.9em;
+    color: #555;
+    margin: 0;
+}
+
+/* == Responsive Adjustments for New Styles == */
+@media (max-width: 992px) { /* Larger tablets */
+    .project-center-card-header h3 { font-size: 1.45em; }
+    .quality-sub-project-header h4 { font-size: 1.3em; }
+    .staff-card h4, .student-card h4 { font-size: 1.25em; }
+    .section-title { font-size: 1.9em; } /* Adjusted section title for better balance */
+    header h1 { font-size: 2.2em; }
+    nav ul.nav-row li a { padding: 10px 14px; font-size: 0.9em; }
+}
+
+@media (max-width: 768px) { /* Tablets */
+    .container { width: 95%; padding: 15px 20px; }
+    header h1 { font-size: 2em; }
+    header p.subtitle { font-size: 1em; }
+    nav ul.nav-row { flex-wrap: wrap; justify-content: space-around; } /* Allow nav items to wrap */
+    nav ul.nav-row li { margin: 2px 3px; }
+    nav ul.nav-row li a { padding: 8px 12px; font-size: 0.85em; }
+
+    .brand-projects-grid,
+    .staff-grid,
+    .students-grid,
+    .service-features-grid,
+    .event-gallery,
+    .contact-grid-extended,
+    .honor-list,
+    .core-advantages, /* Ensure original grids also stack */
+    .quick-nav, /* Ensure original grids also stack */
+    .facility-gallery, /* Ensure original grids also stack */
+    .showcase-gallery, /* Ensure original grids also stack */
+    .competition-intro-grid {
+        grid-template-columns: 1fr; /* Stack cards */
+    }
+    .project-center-card-header { flex-direction: column; align-items: flex-start; }
+    .project-center-card-header img.icon { margin-bottom: 8px; }
+    .quality-sub-project-card { padding: 15px; }
+    .quality-sub-project-header { flex-direction: column; align-items: flex-start; }
+    .quality-sub-project-header img.icon { margin-bottom: 8px; }
+    .section-title { font-size: 1.7em; } /* Further adjusted for smaller screens */
+    .button-link, button { padding: 10px 22px; font-size: 1em; }
+
+}
+
+@media (max-width: 480px) { /* Mobile phones */
+    body { font-size: 15px; }
+    .container { padding: 10px 15px; }
+    header { padding: 1.5em 0.8em; }
+    header img.logo { height: 40px; }
+    header h1 { font-size: 1.8em; }
+    header p.subtitle { font-size: 0.9em; }
+    nav ul.nav-row li a { padding: 8px 10px; font-size: 0.8em; }
+
+    .project-center-card-header h3 { font-size: 1.3em; }
+    .project-center-card .project-intro { font-size: 0.95em; }
+    .quality-sub-project-header h4 { font-size: 1.2em; }
+    .staff-card img.profile-pic, .student-card img.profile-pic { width: 80px; height: 80px; }
+    .staff-card h4, .student-card h4 { font-size: 1.15em; }
+    .feature-item h4 { font-size: 1.1em; }
+    .advantage-item img, .nav-button img { width: 50px; height: 50px; } /* Smaller icons */
+    .advantage-item p, .nav-button { font-size: 1em; }
+
+    .section-title { font-size: 1.5em; } /* Final adjustment for mobile */
+    .button-link, button { padding: 10px 18px; font-size: 0.9em; }
+    .contact-block-styled h3 { font-size: 1.25em; }
+    .qr-code-item img { width: 100px; height: 100px; }
+    .corporate-culture-item dd, .corporate-culture-item .culture-item-desc { padding-left: 15px; }
+    footer { padding: 20px 15px; font-size: 0.9em; }
+}
+
+/* === END: NEW STYLES for Comprehensive Content (Added by AI) === */

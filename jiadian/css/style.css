@@ -1,0 +1,586 @@
+/* --- START OF FILE style.css (NEW SCHEME: ELEGANT PURPLE & SOFT PINKS - INCLUDES INDEX CARD UPDATE) --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FAF7FA; /* 非常浅的带紫调的灰色或米白色 */
+    color: #333333; /* 主要文本颜色 - 深灰色 */
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1080px;
+    margin: 25px auto;
+    padding: 25px 30px;
+    background-color: #FFFFFF; /* 白色内容区域 */
+    box-shadow: 0 8px 25px rgba(74, 20, 140, 0.08); /* 紫色调阴影 */
+    border-radius: 12px;
+}
+
+header {
+    background: linear-gradient(135deg, #5E35B1 0%, #4A148C 100%); /* 深紫色渐变 */
+    color: white;
+    padding: 2.5em 1em;
+    text-align: center;
+}
+
+header img.logo {
+    height: 55px;
+    margin-bottom: 12px;
+}
+header h1 {
+    margin: 0;
+    font-size: 2.6em;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+header p.subtitle {
+    font-size: 1.15em;
+    opacity: 0.9;
+    margin-top: 8px;
+    font-weight: 300;
+    color: #E6E6FA; /* 淡紫色副标题 */
+}
+
+nav {
+    background-color: #FFFFFF;
+    padding: 12px 0;
+    box-shadow: 0 4px 10px rgba(74, 20, 140, 0.07);
+    border-bottom: 3px solid #5E35B1;
+}
+
+nav ul.nav-row {
+    list-style-type: none;
+    padding: 0 5px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav ul.nav-row:first-child {
+    margin-bottom: 2px;
+}
+
+nav ul.nav-row li {
+    margin: 5px 6px;
+}
+
+nav ul.nav-row li a {
+    color: #4A148C;
+    text-decoration: none;
+    padding: 10px 18px;
+    display: block;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 0.98em;
+}
+
+nav ul.nav-row li a:hover {
+    background-color: #5E35B1;
+    color: white;
+    transform: translateY(-2px);
+}
+
+nav ul.nav-row li a.active {
+    background-color: #4A148C;
+    color: white;
+    box-shadow: 0 2px 5px rgba(74, 20, 140, 0.4);
+}
+
+.section {
+    margin-bottom: 50px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #E6E6FA;
+}
+.section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.section-title {
+    font-size: 2.2em;
+    color: #4A148C;
+    margin-top: 0;
+    margin-bottom: 30px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #D8BFD8;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+.section-title::after {
+    content: " ✨";
+}
+
+.banner-swiper img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    box-shadow: 0 5px 12px rgba(74, 20, 140, 0.1);
+}
+.banner-text {
+    text-align: center;
+    font-size: 1.15em;
+    color: #594F4F;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+.banner-swiper .button-link {
+    background-color: #DA70D6;
+    color: white;
+}
+.banner-swiper .button-link:hover {
+    background-color: #C65DBA;
+}
+
+/* 图文卡片和通用网格布局 */
+.core-advantages, .service-cards-grid, /* .quick-nav 被 .service-cards-grid 替代 */
+.gallery-grid, .teachers-grid, .contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 25px;
+    margin-bottom: 35px;
+}
+
+.advantage-item { /* 用于“为什么选择阳光电器”和新的“核心服务”图文卡片 */
+    padding: 25px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(74, 20, 140, 0.07);
+    transition: all 0.3s ease;
+    background-color: #FFFFFF;
+    border: 1px solid #E6E6FA;
+    display: flex; /* 使得内部的 a.card-link 可以撑满 */
+    flex-direction: column; /* 确保卡片即使没有 a.card-link 也能正确布局 */
+}
+.advantage-item:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(74, 20, 140, 0.12);
+}
+
+/* 用于包裹整个卡片内容的链接 (在.advantage-item内部) */
+.advantage-item a.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 图标和主标题居中 */
+    justify-content: space-between; /* 使按钮能被推到底部 */
+    flex-grow: 1;
+    height: 100%;
+}
+
+.advantage-item img { /* 通用卡片内图标/图示 */
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+
+.advantage-item p.card-title { /* 卡片主标题 */
+    font-weight: bold;
+    color: #5E35B1; /* 主紫色 */
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.advantage-item p.card-description { /* 卡片描述文字 */
+    font-size: 0.9em;
+    color: #696969; /* 中灰色 */
+    line-height: 1.6;
+    text-align: left; /* 描述文字左对齐 */
+    margin-bottom: 15px;
+    flex-grow: 1; /* 允许描述区域填充空间，将按钮推到底部 */
+}
+/* 如果 "为什么选择阳光电器" 部分的描述需要居中 */
+.core-advantages .advantage-item p.card-description {
+    text-align: center;
+}
+
+.category-item-card {
+    background-color: #F5EEF8; /* 浅薰衣草雾色背景 */
+    padding: 20px 15px;        /* 内边距 */
+    border-radius: 8px;
+    border: 1px solid #D8BFD8; /* 蓟色边框 */
+    text-align: center;
+    transition: all 0.3s ease; /* 为所有可过渡属性添加过渡效果 */
+    box-shadow: 0 2px 4px rgba(74, 20, 140, 0.05); /* 初始较浅的阴影 */
+    display: flex; /* 使内部元素可以更好地控制 */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* 如果希望内容垂直居中 */
+    min-height: 120px; /* 给卡片一个最小高度，使其看起来更规整 */
+}
+
+.category-item-card img {
+    width: 40px; /* 图标尺寸 */
+    height: 40px; /* 确保图标是方形的，如果不是，object-fit会处理 */
+    object-fit: contain;
+    margin-bottom: 10px; /* 图标和文字之间的间距 */
+}
+
+.category-item-card p {
+    margin: 0;
+    font-weight: 600; /* 字体加粗 */
+    color: #4A148C;   /* 深李子紫文字 */
+    font-size: 0.95em; /* 调整字体大小 */
+}
+
+/* 悬停效果 - “浮动的感觉” */
+.category-item-card:hover {
+    transform: translateY(-5px); /* 向上轻微移动 */
+    box-shadow: 0 8px 16px rgba(74, 20, 140, 0.15); /* 更明显的阴影 */
+    border-color: #BEA9D8; /* 悬停时边框颜色可以略微加深或改变 */
+    background-color: #EDE7F6; /* 悬停时背景色可以略微改变，增加反馈 */
+}
+
+
+/* 之前 .nav-button-purple-theme 的样式，如果不再使用可以删除 */
+/* 如果其他地方仍需类似按钮，可以保留或调整为更通用的类名 */
+.nav-button-purple-theme { /* 示例：如果仍需独立按钮样式 */
+    /* ... 保留或修改之前的定义 ... */
+    /* 例如：*/
+    padding: 25px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(74, 20, 140, 0.07);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    text-decoration: none;
+    color: #5E35B1;
+    background-color: #F5EEF8;
+    border: 1px solid #D8BFD8;
+}
+.nav-button-purple-theme:hover {
+    background-color: #5E35B1;
+    color: white;
+    border-color: #5E35B1;
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(94, 53, 177, 0.12);
+}
+.nav-button-purple-theme img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+}
+.nav-button-purple-theme:hover img {
+    filter: brightness(0) invert(1);
+}
+.nav-button-purple-theme span.nav-text { /* 如果按钮内部有特定文本 */
+    font-weight: bold;
+    color: inherit; /* 继承 a 标签的颜色 */
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+
+/* .gallery-item, .teacher-card, .contact-card 继承 .advantage-item 的大部分边框、阴影、背景等基础样式 */
+/* 所以这里只需要写差异化的样式 */
+.gallery-item img, .teacher-card img.teacher-avatar {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.gallery-item:hover img, .teacher-card:hover img.teacher-avatar {
+    transform: scale(1.07);
+}
+.gallery-item-caption, .teacher-card-info {
+    padding: 20px; /* .advantage-item的padding是25px, 这里可按需覆盖 */
+    text-align: center;
+    flex-grow: 1;
+}
+.gallery-item-caption h4, .teacher-card-info h4 {
+    margin: 0 0 10px 0;
+    color: #5E35B1;
+    font-size: 1.25em;
+}
+.teacher-card-info h4 small {
+    display: block;
+    font-size: 0.82em;
+    color: #A9A9A9;
+    font-weight: normal;
+    margin-top: 5px;
+}
+.gallery-item-caption p, .teacher-card-info p {
+    font-size: 0.92em;
+    color: #696969;
+    margin: 0;
+    line-height: 1.65;
+}
+.teacher-card-info p { text-align: left; margin-top: 12px; }
+
+.info-item { margin-bottom: 18px; font-size: 1.08em; line-height: 1.85;}
+.info-label { font-weight: 600; color: #4A148C; margin-right: 10px;}
+.info-item a.highlight { color: #DA70D6; text-decoration: none; font-weight: bold; }
+.info-item a.highlight:hover { text-decoration: underline; }
+
+.highlight { color: #DA70D6; font-weight: bold; }
+
+button, .button-link {
+    background-color: #DA70D6;
+    color: white;
+    padding: 14px 35px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.12em;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(218, 112, 214, 0.4);
+    transition: all 0.3s ease;
+    margin-top: 12px;
+    text-align: center;
+}
+button:hover, .button-link:hover {
+    background-color: #C65DBA;
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 6px 18px rgba(198, 93, 186, 0.5);
+}
+
+button.secondary, .button-link.secondary {
+    background-color: #5E35B1;
+    box-shadow: 0 4px 10px rgba(94, 53, 177, 0.4);
+}
+button.secondary:hover, .button-link.secondary:hover {
+    background-color: #4A148C;
+    box-shadow: 0 6px 18px rgba(74, 20, 140, 0.5);
+}
+button.soft, .button-link.soft {
+    background-color: #E6E6FA;
+    color: #4A148C;
+    box-shadow: 0 2px 6px rgba(230, 230, 250, 0.6); /* 阴影调弱 */
+    font-weight: 500; /* 字体调细 */
+}
+button.soft:hover, .button-link.soft:hover {
+    background-color: #D8BFD8;
+    box-shadow: 0 4px 12px rgba(216, 191, 216, 0.7);
+    transform: translateY(-2px); /* 悬停效果调弱 */
+}
+.button-link-midea {
+    background-color: #0A58CA; /* 例如，使用美的头部渐变的深蓝色 */
+    color: white;
+    box-shadow: 0 4px 10px rgba(10, 88, 202, 0.4); /* 对应颜色的阴影 */
+}
+.button-link-midea:hover {
+    background-color: #0D6EFD; /* 悬停时用浅一点的蓝色，或更深的 */
+    box-shadow: 0 6px 18px rgba(13, 110, 253, 0.5);
+}
+
+.course-categories {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 25px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.course-category {
+    margin-bottom: 25px;
+    border: 1px solid #D8BFD8;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 700px;
+    background-color: #FFFFFF;
+}
+.course-category:last-child { margin-bottom: 0; }
+
+.course-category-title {
+    background: linear-gradient(to right, #6A0DAD, #8A2BE2);
+    color: white;
+    padding: 18px 25px;
+    font-size: 1.35em;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+.course-category-title small { font-weight:normal; opacity:0.8; font-size: 0.75em; }
+
+.course-list {
+    list-style: none;
+    padding: 20px 25px 25px 30px;
+    background-color: #FAF7FA;
+    text-align: left;
+}
+.course-list li {
+    padding: 12px 0;
+    border-bottom: 1px dashed #D8BFD8;
+    color: #4A148C;
+    font-size: 1.05em;
+}
+.course-list li:last-child { border-bottom: none; }
+.course-list li strong { color: #5E35B1; }
+.course-list li a.highlight { color: #DA70D6; font-weight: normal; text-decoration: underline; }
+.course-list li a.highlight:hover { color: #C65DBA; }
+
+.step-number { background-color: #DA70D6; color: white; width: 30px; height: 30px; line-height: 30px; text-align: center; border-radius: 50%; font-weight: bold; margin-right: 12px; font-size: 0.95em; display: inline-block;}
+.admissions-section h4 { color: #4A148C; margin-top: 25px; margin-bottom: 10px; display: flex; align-items: center; }
+
+.contact-card { background: #F5EEF8; border: 1px solid #D8BFD8; padding:30px; }
+.contact-card.phone-card h3 { color: #5E35B1; }
+.contact-card.location-card h3 { color: #6A0DAD; }
+.contact-card h3 { margin-top: 0; display: flex; align-items: center; font-size: 1.6em; margin-bottom: 18px; }
+.contact-card h3 img { width: 30px; height: 30px; margin-right: 12px; }
+
+
+footer {
+    text-align: center;
+    padding: 35px 20px;
+    background: #4A148C;
+    color: #E6E6FA;
+    margin-top: 50px;
+    font-size: 0.98em;
+}
+footer p { margin: 10px 0; }
+footer a { color: #F8C8DC; text-decoration: underline; }
+footer a:hover { color: white; text-decoration: none; }
+
+.special-bg-section {
+    background: #E6E6FA;
+    padding: 45px 30px;
+    border-radius: 10px;
+    color: #4A148C;
+    margin-bottom: 35px;
+}
+.special-bg-section .section-title { color: #4A148C; border-bottom-color: #D8BFD8; }
+.special-bg-section .section-title::after { content: " 🌟"; }
+.special-bg-section p { color: #5E35B1; font-size: 1.15em; text-align: center; }
+.special-bg-section .button-link { background-color: #DA70D6; color: white; }
+.special-bg-section .button-link:hover { background-color: #C65DBA; }
+.special-bg-section ul { list-style: none; padding: 0; text-align: center; }
+.special-bg-section ul li { margin-bottom: 12px; font-size: 1.08em; }
+.special-bg-section ul li a.highlight { color: #4A148C; }
+
+
+.store-section .store-header {
+    color: white;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+}
+.store-section .store-header img { margin-bottom: 10px; }
+.store-section .store-header h3 { margin:0; font-size:1.8em; }
+.store-section .store-header p { opacity:0.9; font-size:1.1em; margin-top:5px; }
+
+.store-section .store-content {
+    padding:25px;
+    border:1px solid; /* 边框颜色将在特定类中定义 */
+    border-top:none;
+    border-radius:0 0 10px 10px;
+}
+.store-section .store-content .grid-layout { /* 用于内部图文布局 */
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap:25px;
+    align-items:center;
+}
+.store-section .store-content img.store-image { /* 门店图片 */
+    width:100%;
+    border-radius:8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.store-section .store-content ul { list-style-type: disc; padding-left:20px; }
+
+.store-section .store-contact-info {
+    margin-top:25px;
+    text-align:center;
+    padding-top:20px;
+    border-top:1px dashed; /* 边框颜色将在特定类中定义 */
+}
+.store-section .store-contact-info .info-item { margin-bottom:10px; }
+.store-section .store-contact-info .info-label { font-weight:bold; }
+
+
+/* 京东主题 */
+#jingdong-store .store-header { background: linear-gradient(135deg, #E53935, #C62828); }
+#jingdong-store .store-content { background-color:#FFF3E0; border-color: #FFECB3; }
+#jingdong-store .store-content h4 { color:#D32F2F; }
+#jingdong-store .store-content ul { color:#C62828; }
+#jingdong-store .store-contact-info { border-top-color: #FFD180; }
+#jingdong-store .store-contact-info .info-label { color:#E65100; }
+#jingdong-store .store-contact-info .highlight { color:#F57C00; }
+#jingdong-store .store-contact-info .button-link { background-color:#E53935; }
+
+/* 美的ഴ主题 (这里用了网站主蓝色系，可以根据美的品牌色调整) */
+#midea-store .store-header { background: linear-gradient(135deg, #0D6EFD, #0A58CA); }
+#midea-store .store-content { background-color:#E3F2FD; border-color: #BBDEFB; }
+#midea-store .store-content h4 { color:#0A58CA; }
+#midea-store .store-content ul { color:#0D6EFD; }
+#midea-store .store-contact-info { border-top-color: #90CAF9; }
+#midea-store .store-contact-info .info-label { color:#0D47A1; }
+#midea-store .store-contact-info .highlight { color:#1976D2; }
+/* #midea-store .store-contact-info .button-link 使用 .primary-blue 类 */
+
+
+/* COLMO主题 */
+#colmo-store .store-header {
+    background: linear-gradient(135deg, #6BAD76, #609966); /* 明亮自然绿 到 沉稳翠绿 */
+}
+#colmo-store .store-content {
+    background-color: #EFF5EE; /* 非常浅的春芽绿 */
+    border-color: #CDE0C9;    /* 浅绿灰边框 */
+}
+#colmo-store .store-content h4 {
+    color: #38761D; /* 深绿色 */
+}
+#colmo-store .store-content ul {
+    color: #43644C; /* 中性深绿 */
+}
+#colmo-store .store-contact-info {
+    border-top-color: #B7CCB3; /* 浅绿灰虚线 */
+}
+#colmo-store .store-contact-info .info-label {
+    color: #38761D; /* 深绿色 */
+}
+#colmo-store .store-contact-info .highlight {
+    color: #43644C; /* 中性深绿 */
+}
+#colmo-store .store-contact-info .button-link {
+    background-color: #609966; /* 主翠绿按钮背景 */
+    color: white;
+    box-shadow: 0 4px 10px rgba(96, 153, 102, 0.4); /* 对应颜色的阴影 */
+}
+#colmo-store .store-contact-info .button-link:hover {
+    background-color: #538C59; /* 略深一点的翠绿 */
+    box-shadow: 0 6px 18px rgba(83, 140, 89, 0.5);
+}
+
+@media (max-width: 768px) {
+    header h1 { font-size: 2.2em; }
+    header p.subtitle { font-size: 1.05em; }
+    .section-title { font-size: 2em; }
+    nav ul.nav-row li a { padding: 8px 12px; font-size: 0.9em; }
+    .core-advantages, .service-cards-grid, .gallery-grid, .teachers-grid, .contact-info-grid {
+        grid-template-columns: 1fr;
+    }
+    .admissions-section div[style*="flex:1"],
+    .special-bg-section div[style*="flex:1"] { min-width: 100%; }
+}
+
+@media (max-width: 480px) {
+    /* 根据需要在极小屏幕下进一步调整 */
+}
+/* --- END OF FILE style.css --- */

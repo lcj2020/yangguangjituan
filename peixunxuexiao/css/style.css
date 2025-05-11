@@ -1,0 +1,587 @@
+/* --- START OF FILE style.css (CORRECTED - SCHEME 3 WITH NAV-BUTTON FIX) --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F4F6F8; /* 非常浅的灰色背景 */
+    color: #212529; /* 主要文本颜色 - 近黑色 */
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1080px;
+    margin: 25px auto;
+    padding: 25px 30px;
+    background-color: #FFFFFF; /* 白色内容区域 */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    border-radius: 12px;
+}
+
+header {
+    background: linear-gradient(135deg, #0D6EFD 0%, #1976D2 100%); /* 科技蓝渐变 */
+    color: white;
+    padding: 2.5em 1em;
+    text-align: center;
+}
+
+header img.logo {
+    height: 55px;
+    margin-bottom: 12px;
+}
+header h1 {
+    margin: 0;
+    font-size: 2.6em;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+}
+header p.subtitle {
+    font-size: 1.15em;
+    opacity: 0.9;
+    margin-top: 8px;
+    font-weight: 300;
+}
+
+nav {
+    background-color: #FFFFFF; /* 导航栏白色背景 */
+    padding: 12px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+    border-bottom: 3px solid #0D6EFD; /* 科技蓝下边框 */
+}
+
+nav ul.nav-row {
+    list-style-type: none;
+    padding: 0 5px;
+    /* 调整margin，确保每个ul之间有合适的间距，并且整体在nav内居中 */
+    /* 第一个ul的margin-bottom会给第二行ul留出空间 */
+    /* 为简单起见，可以给nav设置text-align:center，然后ul设为inline-block */
+    /* 或者继续用flexbox，但要确保nav本身能容纳两个ul */
+    margin: 0 auto; /* 让每个ul在自己的行内居中其内容 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-wrap: wrap;  <-- 保持注释或移除，因为每个ul就是一行 */
+}
+
+/* 给第一个ul添加底部外边距，以便与第二个ul分隔开 */
+nav ul.nav-row:first-child {
+    margin-bottom: 2px; /* 或您希望的行间距，可以小一点 */
+}
+
+
+/* 如果希望第二行ul与第一行ul之间没有额外的垂直间距 */
+nav ul.nav-row + ul.nav-row { /* 选择紧跟在ul.nav-row后的ul.nav-row */
+    margin-top: 0;
+    padding-top: 0; /* 如果ul.nav-row有padding-top的话 */
+}
+
+nav ul.nav-row li {
+    margin: 5px 6px; /* li之间的间距 */
+}
+
+nav ul.nav-row li a {
+    color: #0D6EFD;
+    text-decoration: none;
+    padding: 10px 18px;
+    display: block;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 0.98em;
+}
+
+nav ul.nav-row li a:hover {
+    background-color: #0D6EFD;
+    color: white;
+    transform: translateY(-2px);
+}
+
+nav ul.nav-row li a.active {
+    background-color: #0B5ED7;
+    color: white;
+    box-shadow: 0 2px 5px rgba(13, 110, 253, 0.4);
+}
+
+.section {
+    margin-bottom: 50px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #E9ECEF; /* 浅灰色分隔线 */
+}
+.section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.section-title {
+    font-size: 2.2em;
+    color: #0D6EFD; /* 区段标题 - 科技蓝 */
+    margin-top: 0;
+    margin-bottom: 30px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #1ABC9C; /* 青绿色下划线 */
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+.section-title::after {
+    content: " 🚀";
+}
+
+.banner-swiper img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+}
+.banner-text {
+    text-align: center;
+    font-size: 1.15em;
+    color: #495057;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+.banner-swiper .button-link {
+    background-color: #FD7E14; /* 点缀橙 */
+    color: white;
+}
+.banner-swiper .button-link:hover {
+    background-color: #E6730F; /* 深一点的橙 */
+}
+
+.core-advantages { /* .quick-nav 将复用部分样式，但具体在 .nav-button 中覆盖 */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px;
+    margin-top: 25px;
+    margin-bottom: 35px;
+}
+/* .quick-nav 的布局 */
+.quick-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); /* 与 core-advantages 保持一致 */
+    gap: 30px; /* 与 core-advantages 保持一致 */
+    margin-top: 25px;
+    margin-bottom: 35px;
+}
+
+
+.advantage-item { /* .nav-button 将复用部分样式，但具体在 .nav-button 中覆盖 */
+    padding: 30px 25px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+    transition: all 0.3s ease;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.advantage-item:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.advantage-item img {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 18px;
+    object-fit: contain;
+}
+.advantage-item p {
+    margin: 6px 0 0 0;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #212529;
+}
+.advantage-item p:first-of-type {
+    font-weight: bold;
+    color: #0D6EFD; /* 科技蓝 */
+    margin-bottom: 8px;
+}
+.advantage-item p:last-of-type {
+    font-size: 0.92em;
+    color: #6C757D; /* 中灰色 */
+    line-height: 1.6;
+}
+
+
+/* 新的 .nav-button 样式 (根据您的最新要求) */
+.nav-button {
+    /* 从 .advantage-item 继承或相似的样式 */
+    padding: 25px 20px; /* 调整内边距 */
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* 图标和文字居中 */
+    min-height: 150px; /* 给按钮一个最小高度，使其看起来更一致 */
+
+    /* 独有或覆盖的样式 */
+    text-decoration: none;
+    color: #0D6EFD; /* 默认蓝色文字 */
+    background-color: #FFFFFF; /* 默认白色背景 */
+    border: 1px solid #DEE2E6; /* 默认浅灰色边框 */
+    font-size: 1.1em;
+    font-weight: 600; /* 加粗文字 */
+    margin: 0; /* 清除可能的继承外边距 */
+}
+
+.nav-button:hover,
+.nav-button.active { /* .active 类用于模拟“被选择”状态 */
+    background-color: #0D6EFD; /* 悬停/选择时蓝色背景 */
+    color: #FFFFFF; /* 悬停/选择时白色文字 */
+    border-color: #0D6EFD; /* 边框颜色与背景一致 */
+    transform: translateY(-6px) scale(1.03); /* 保持悬停效果 */
+    box-shadow: 0 10px 25px rgba(13, 110, 253, 0.3); /* 悬停时阴影增强 */
+}
+
+.nav-button img {
+    width: 48px; /* 图标大小略微调整 */
+    height: 48px;
+    margin-bottom: 12px; /* 图标与文字间距 */
+    object-fit: contain;
+    transition: filter 0.3s ease;
+}
+
+.nav-button:hover img,
+.nav-button.active img {
+    filter: brightness(0) invert(1); /* 尝试将图标变为白色 */
+}
+
+
+.gallery-grid, .teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+.gallery-item, .teacher-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}
+.gallery-item img, .teacher-card img.teacher-avatar {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.gallery-item:hover img, .teacher-card:hover img.teacher-avatar {
+    transform: scale(1.07);
+}
+.gallery-item-caption, .teacher-card-info {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.gallery-item-caption h4, .teacher-card-info h4 {
+    margin: 0 0 10px 0;
+    color: #0D6EFD; /* 科技蓝 */
+    font-size: 1.25em;
+}
+.teacher-card-info h4 small {
+    display: block;
+    font-size: 0.82em;
+    color: #6C757D;
+    font-weight: normal;
+    margin-top: 5px;
+}
+.gallery-item-caption p, .teacher-card-info p {
+    font-size: 0.92em;
+    color: #495057;
+    margin: 0;
+    line-height: 1.65;
+}
+.teacher-card-info p {
+    text-align: left;
+    margin-top: 12px;
+}
+
+.info-item {
+    margin-bottom: 18px;
+    font-size: 1.08em;
+    line-height: 1.85;
+}
+.info-label {
+    font-weight: 600;
+    color: #0B5ED7; /* 深科技蓝 */
+    margin-right: 10px;
+}
+.info-item a.highlight {
+    color: #FD7E14; /* 点缀橙 */
+    text-decoration: none;
+    font-weight: bold;
+}
+.info-item a.highlight:hover {
+    text-decoration: underline;
+}
+
+.highlight {
+    color: #FD7E14; /* 点缀橙 */
+    font-weight: bold;
+}
+
+button, .button-link {
+    background-color: #FD7E14; /* 主按钮 - 点缀橙 */
+    color: white;
+    padding: 14px 35px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.12em;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(253, 126, 20, 0.4);
+    transition: all 0.3s ease;
+    margin-top: 12px;
+    text-align: center;
+}
+button:hover, .button-link:hover {
+    background-color: #E6730F; /* 深一点的橙 */
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 6px 18px rgba(230, 115, 15, 0.5);
+}
+
+button.secondary, .button-link.secondary {
+    background-color: #1ABC9C; /* 青绿色 */
+    box-shadow: 0 4px 10px rgba(26, 188, 156, 0.4);
+}
+button.secondary:hover, .button-link.secondary:hover {
+    background-color: #16A085; /* 深一点的青绿 */
+    box-shadow: 0 6px 18px rgba(22, 160, 133, 0.5);
+}
+button.primary-blue, .button-link.primary-blue {
+    background-color: #0D6EFD;
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.4);
+}
+button.primary-blue:hover, .button-link.primary-blue:hover {
+    background-color: #0B5ED7;
+    box-shadow: 0 6px 18px rgba(11, 94, 215, 0.5);
+}
+
+
+.course-categories {
+    list-style: none;
+    padding: 0;         /* 移除所有方向的内边距 */
+    margin: 0 auto 25px auto; /* 上外边距为0，左右auto，下外边距保留25px (或根据需要调整)
+                                  这个下外边距是ul.course-categories整体与其下方元素的间距 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.admissions-section ul.course-categories { /* 确保body标签上有 class="admissions-section" */
+    list-style: none;
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    margin-block-start: 0;
+    margin-block-end: 25px; /* 控制整个列表块与下方元素的间距 */
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* max-width: 800px; */ /* 如果希望整个列表区域有最大宽度并居中 */
+}
+.course-category {
+    margin-bottom: 25px; /* 这是卡片之间的间距 */
+    /* 移除独立的左右margin，因为父级ul的align-items:center会处理居中 */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    border: 1px solid #DEE2E6;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%; /* 宽度由父级flex容器的align-items和自身的max-width决定 */
+    max-width: 700px; /* 专业卡片的最大宽度 */
+}
+.course-categories li.course-category:last-child {
+    margin-bottom: 0; /* 移除最后一个卡片的底部外边距，避免双重间距 */
+}
+.course-category-title {
+    background: linear-gradient(to right, #1ABC9C, #20C997); /* 青绿色渐变 */
+    color: white;
+    padding: 18px 25px;
+    font-size: 1.45em;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.course-list {
+    list-style: none;
+    padding: 20px 25px 25px 30px;
+    background-color: #F8F9FA;
+}
+.course-list li {
+    padding: 12px 0;
+    border-bottom: 1px dashed #CED4DA;
+    color: #495057;
+    font-size: 1.08em;
+}
+.course-list li:last-child { border-bottom: none; }
+.course-list li strong { color: #0D6EFD; } /* 科技蓝 */
+.course-list li a.highlight {
+    color: #FD7E14; /* 点缀橙 */
+    font-weight: normal;
+    text-decoration: underline;
+}
+.course-list li a.highlight:hover {
+    color: #E6730F;
+}
+
+.step-number {
+    display: inline-block;
+    background-color: #FD7E14; /* 点缀橙 */
+    color: white;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: bold;
+    margin-right: 12px;
+    font-size: 0.95em;
+}
+.admissions-section h4 {
+    color: #0D6EFD; /* 科技蓝 */
+    margin-top: 25px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.admissions-section ul {
+    list-style-type: disc;
+    margin-left: 45px;
+    padding-left: 0;
+}
+.admissions-section ul li {
+    margin-bottom: 10px;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 35px;
+}
+.contact-card {
+    background: #F8F9FA;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #DEE2E6;
+}
+.contact-card h3 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    font-size: 1.6em;
+    margin-bottom: 18px;
+}
+.contact-card h3 img {
+    width: 30px;
+    height: 30px;
+    margin-right: 12px;
+}
+.contact-card.phone-card h3 { color: #0D6EFD; }
+.contact-card.location-card h3 { color: #1ABC9C; }
+
+footer {
+    text-align: center;
+    padding: 35px 20px;
+    background: #2C3E50;
+    color: #E9ECEF;
+    margin-top: 50px;
+    font-size: 0.98em;
+}
+footer p {
+    margin: 10px 0;
+}
+footer a {
+    color: #87CEFA;
+    text-decoration: underline;
+}
+footer a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.special-bg-section {
+    background: #E9F5FF;
+    padding: 45px 30px;
+    border-radius: 10px;
+    color: #212529;
+    margin-bottom: 35px;
+}
+.special-bg-section .section-title {
+    color: #0D6EFD;
+    border-bottom-color: #1ABC9C;
+}
+.special-bg-section .section-title::after {
+    content: "💡";
+}
+.special-bg-section p {
+    color: #495057;
+    font-size: 1.15em;
+    text-align: center;
+}
+.special-bg-section .button-link {
+    background-color: #FD7E14;
+    color: white;
+}
+.special-bg-section .button-link:hover {
+    background-color: #E6730F;
+}
+.special-bg-section ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+.special-bg-section ul li {
+    margin-bottom: 12px;
+    font-size: 1.08em;
+}
+.special-bg-section ul li a.highlight {
+    color: #0B5ED7;
+}
+
+@media (max-width: 768px) {
+    header h1 { font-size: 2.2em; }
+    header p.subtitle { font-size: 1.05em; }
+    .section-title { font-size: 2em; }
+    .core-advantages, .quick-nav, .gallery-grid, .teachers-grid, .contact-info-grid {
+        grid-template-columns: 1fr;
+    }
+    .admissions-section div[style*="flex:1"],
+    .special-bg-section div[style*="flex:1"] { min-width: 100%; }
+    nav ul.nav-row li a {
+        padding: 8px 12px; /* 例如，减小内边距 */
+        font-size: 0.9em; /* 例如，减小字体 */
+    }
+}
+
+@media (max-width: 480px) {
+    /* .container { width: 95%; padding: 20px 15px; }
+    header h1 { font-size: 2em; }
+    .section-title { font-size: 1.8em; }
+    button, .button-link { font-size: 1.05em; padding: 12px 25px; } */
+}

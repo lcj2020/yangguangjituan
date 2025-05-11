@@ -1,0 +1,295 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 更现代的字体栈 */
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* 更轻盈的背景色 */
+    color: #495057; /* 柔和的深灰色文本 */
+    line-height: 1.7; /* 增加行高提升可读性 */
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px; /* 可以适当放宽一点 */
+    margin: 30px auto;
+    padding: 25px 30px; /* 增加内边距 */
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* 更柔和的阴影 */
+    border-radius: 8px; /* 给容器也加上圆角 */
+}
+
+header {
+    background-color: #4CAF50; /* 主题绿色，保持不变或稍作调整 */
+    color: white;
+    padding: 1.5em 0; /* 增加垂直内边距 */
+    text-align: center;
+    /* 移除 margin-bottom，让导航栏紧随其后 */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2em; /* 标题稍大一些 */
+    font-weight: 600; /* 字体加粗一些 */
+}
+
+/* 包裹导航栏，方便统一样式 */
+
+nav {
+    background-color: #E8F5E9; /* 浅绿色背景 */
+    padding: 8px 0; /* 减小整体导航栏的上下内边距 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+nav ul.nav-row {
+    list-style-type: none;
+    padding: 0 5px; /* 稍微减小左右内边距，但保留一点防止贴边 */
+    margin: 3px auto; /* 减小行间距 (原为 5px) */
+    display: flex;
+    justify-content: center; /* 水平居中该行的导航项 */
+    align-items: center;
+}
+
+nav ul.nav-row li {
+    margin: 0 3px; /* 大幅减小导航项之间的水平间距 (原为 5px) */
+}
+
+nav ul.nav-row li a {
+    color: #2E7D32; /* 深绿色文字 */
+    text-decoration: none;
+    padding: 8px 15px; /* 减小按钮的上下和左右内边距 (原为 10px 18px) */
+    display: block;
+    font-weight: 500;
+    border-radius: 20px; /* 药丸形状按钮，可以调整为更小的圆角如 4px 或 6px 如果药丸太大 */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap; /* 防止文字本身换行 */
+    text-align: center; /* 确保文字在按钮内居中 */
+    /* min-width: 90px; */ /* (可选) 如果之前有设置，可以减小或移除最小宽度，让按钮根据内容自适应 */
+}
+
+nav ul.nav-row li a:hover {
+    background-color: #C8E6C9; /* 悬停时浅一点的绿色背景 */
+    color: #1B5E20; /* 深一点的绿色文字 */
+}
+
+nav ul.nav-row li a.active {
+    background-color: #4CAF50; /* 主题绿色背景 */
+    color: white; /* 白色文字 */
+}
+
+.section {
+    margin-bottom: 40px; /* 增加区块间距 */
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e9ecef; /* 更浅的分隔线 */
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+.section-title {
+    font-size: 1.9em; /* 调整标题大小 */
+    color: #388E3C; /* 深一点的绿色，比主题色略深 */
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #AED581; /* 用一个更亮的绿色作为下划线 */
+    font-weight: 600;
+    display: inline-block; /* 使下划线仅限于文字宽度 */
+}
+
+.banner-swiper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 6px; /* 给轮播图片也加上圆角 */
+}
+.banner-text {
+    text-align: center;
+    font-style: italic;
+    color: #6c757d; /* 柔和的灰色 */
+    margin-bottom: 25px;
+}
+
+.core-advantages {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 20px; /* 与上方区块的间距 */
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.advantage-item {
+    flex-basis: calc(25% - 20px); /* 适应4列，并考虑间距 */
+    margin: 10px;
+    padding: 20px 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.advantage-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.advantage-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    /* 可以给图标加个浅色背景，让它更突出 */
+    /* background-color: #E8F5E9; padding: 8px; border-radius: 50%; */
+}
+.advantage-item p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.quick-nav {
+    display: grid; /* 使用 Grid 布局更灵活 */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 响应式列 */
+    gap: 20px; /* 间距 */
+    margin-bottom: 30px;
+}
+
+.nav-button {
+    background-color: #f8f9fa; /* 浅灰色背景 */
+    padding: 20px 15px;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #4CAF50; /* 按钮文字用主题绿色 */
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.07);
+    transition: all 0.3s ease; /* 平滑过渡 */
+    border: 1px solid #e0e0e0; /* 浅色边框 */
+}
+.nav-button:hover {
+    background-color: #4CAF50;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4); /* 悬停时带颜色的阴影 */
+}
+.nav-button img {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+.facility-grid, .room-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 响应式图片宫格 */
+    gap: 20px;
+}
+.facility-item, .room-item {
+    text-align: center;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.08);
+    overflow: hidden; /* 防止图片溢出圆角 */
+}
+.facility-item img, .room-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 6px; /* 图片本身也带圆角 */
+    transition: transform 0.3s ease;
+}
+.facility-item:hover img, .room-item:hover img {
+    transform: scale(1.05); /* 图片轻微放大效果 */
+}
+.facility-item p, .room-item p {
+    margin: 5px 0 0 0;
+    color: #555;
+    font-size: 0.9em;
+}
+
+
+.info-item {
+    margin-bottom: 12px;
+    font-size: 1.05em; /* 增大信息条目的字体 */
+}
+.info-label {
+    font-weight: 600; /* 标签加粗 */
+    color: #388E3C; /* 标签用深绿色 */
+    margin-right: 8px;
+}
+
+.highlight {
+    color: #FF7043; /* 使用一个活泼的橙色或珊瑚色作为高亮 */
+    font-weight: 600;
+    /* background-color: #FFF3E0; padding: 0.1em 0.3em; border-radius: 3px; */ /* 可选的浅色背景 */
+}
+
+button, .button-link {
+    background-color: #FF9800; /* 统一使用一个活泼的橙色作为按钮主色 */
+    color: white;
+    padding: 12px 25px; /* 增加按钮内边距 */
+    border: none;
+    border-radius: 25px; /* 药丸形状按钮，更友好 */
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 5px; /* 给按钮一点上边距 */
+}
+button:hover, .button-link:hover {
+    background-color: #FB8C00; /* 橙色加深 */
+    transform: translateY(-2px); /* 轻微上浮效果 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* 如果有主要操作按钮，可以使用主题绿色 */
+button.primary, .button-link.primary {
+    background-color: #4CAF50;
+}
+button.primary:hover, .button-link.primary:hover {
+    background-color: #388E3C;
+}
+
+
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #555;
+}
+form input[type="text"],
+form input[type="tel"], /* html中是tel, 不是number for phone */
+form textarea {
+    width: calc(100% - 22px); /* 考虑边框和内边距 */
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid #ced4da; /* 更标准的表单边框色 */
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+form input[type="text"]:focus,
+form input[type="tel"]:focus,
+form textarea:focus {
+    border-color: #4CAF50; /* 聚焦时边框变绿 */
+    box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25); /* 模拟 bootstrap 的聚焦效果 */
+    outline: none;
+}
+form textarea {
+    min-height: 120px; /* 文本域最小高度 */
+    resize: vertical;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: #66BB6A; /* 一个比主题色稍浅的绿色，或者用 #455A64 (蓝灰色) */
+    color: #f0f0f0; /* 浅色文字，保证对比 */
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+footer p {
+    margin: 5px 0;
+}
