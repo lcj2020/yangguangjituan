@@ -717,42 +717,73 @@ footer a:hover { color: white; text-decoration: none; }
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* 例如平板竖屏和较宽的手机 */
     header h1 { font-size: 2.2em; }
     header p.subtitle { font-size: 1.05em; }
     .section-title { font-size: 2em; }
     nav ul.nav-row li a { padding: 8px 12px; font-size: 0.9em; }
+    
+    /* 其他通用网格可以变为单列 */
     .core-advantages, .service-cards-grid, .gallery-grid, .teachers-grid, .contact-info-grid {
         grid-template-columns: 1fr;
     }
+    
+    /* ★★★ 确保 product-category-grid-two-columns 在此断点下仍然是两列 ★★★ */
+    /* 实际上，由于它的全局设置就是两列，如果这里没有规则覆盖它，它就会保持两列。 */
+    /* 为了保险起见，或者如果想在这个断点下微调它的 gap，可以加上： */
+    .product-category-grid-two-columns {
+        grid-template-columns: repeat(2, 1fr); /* 再次强调是两列 */
+        gap: 10px; /* 例如，在768px下，间距可以更小一些 */
+    }
+    /* 也可以在这里进一步微调 .product-category-grid-two-columns .category-item-card 的样式 */
+    .product-category-grid-two-columns .category-item-card {
+        /* padding: 10px 6px; */ /* 可选：进一步减小内边距 */
+        /* min-height: 80px; */
+    }
+    .product-category-grid-two-columns .category-item-card p {
+        /* font-size: 0.75em; */ /* 可选：进一步减小字体 */
+    }
+
     .admissions-section div[style*="flex:1"],
     .special-bg-section div[style*="flex:1"] { min-width: 100%; }
 }
 
+/* @media (max-width: 480px) - 这个断点现在对于 product-category-grid-two-columns 可能不再需要特别处理 */
+/* 除非您想在这个断点下做更细致的调整，否则它会继承 768px 或全局的两列设置 */
+/* 如果之前的 480px 媒体查询中有将其设为单列的规则，需要移除或修改 */
 @media (max-width: 480px) {
-    /* 根据需要在极小屏幕下进一步调整 */
+     /* 其他通用样式调整 */
+     .main-title { font-size: 2em; } /* 例如 */
+
+     /* ★★★ 确保 product-category-grid-two-columns 在此断点下仍然是两列 ★★★ */
+     .product-category-grid-two-columns {
+        grid-template-columns: repeat(2, 1fr);
+        /* gap: 8px; */ /* 可以进一步调整间距 */
+     }
 }
 
-@media (max-width: 360px) { /* Adjust this breakpoint民主 if needed */
+
+@media (max-width: 100px) { /* 只有在非常非常窄的屏幕下，才考虑让它变回单列 */
     .product-category-grid-two-columns {
-        grid-template-columns: 1fr; /* Fallback to single column on extremely narrow screens */
+        grid-template-columns: 1fr; /* ★ 退回到单列 ★ */
         gap: 15px;
     }
 
-    /* When it becomes single column, card styles can revert to something similar to default .category-item-card */
+    /* 单列时，卡片样式可以恢复或调整为更适合单列的显示 */
     .product-category-grid-two-columns .category-item-card {
-        padding: 15px 10px; /* Slightly larger padding for single column */
-        min-height: auto;   /* Auto height for single column */
+        padding: 15px 10px; 
+        min-height: auto;   
     }
-
     .product-category-grid-two-columns .category-item-card img {
-        width: 30px;        /* Slightly larger icon for single column */
+        width: 30px;        
         height: 30px;
         margin-bottom: 8px;
     }
-
     .product-category-grid-two-columns .category-item-card p {
-        font-size: 0.85em;  /* Slightly larger font for single column */
+        font-size: 0.85em; 
     }
+
+    /* 其他针对极窄屏幕的样式 */
+    /* ... */
 }
 /* --- END OF FILE style.css --- */
