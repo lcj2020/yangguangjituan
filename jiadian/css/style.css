@@ -439,11 +439,74 @@ button.soft:hover, .button-link.soft:hover {
 .step-number { background-color: #DA70D6; color: white; width: 30px; height: 30px; line-height: 30px; text-align: center; border-radius: 50%; font-weight: bold; margin-right: 12px; font-size: 0.95em; display: inline-block;}
 .admissions-section h4 { color: #4A148C; margin-top: 25px; margin-bottom: 10px; display: flex; align-items: center; }
 
-.contact-card { background: #F5EEF8; border: 1px solid #D8BFD8; padding:30px; }
-.contact-card.phone-card h3 { color: #5E35B1; }
-.contact-card.location-card h3 { color: #6A0DAD; }
-.contact-card h3 { margin-top: 0; display: flex; align-items: center; font-size: 1.6em; margin-bottom: 18px; }
-.contact-card h3 img { width: 30px; height: 30px; margin-right: 12px; }
+.contact-card {
+    background: #FDFBFF; /* ★ 修改为更浅的背景，或白色 #FFFFFF，以增强阴影效果 ★ */
+    border: 1px solid #E6E6FA; /* ★ 可以用更浅的边框，或者完全依赖阴影 ★ */
+    padding: 25px;            /* ★ 可以适当调整内边距 ★ */
+    border-radius: 10px;      /* ★ 添加圆角 ★ */
+    box-shadow: 0 5px 15px rgba(74, 20, 140, 0.07); /* ★ 添加初始阴影 ★ */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* ★ 添加过渡效果 ★ */
+    display: flex; /* 如果希望内部元素更好地对齐，可以考虑flex */
+    flex-direction: column;
+}
+
+.contact-card:hover {
+    transform: translateY(-6px); /* ★ 悬停时向上移动 ★ */
+    box-shadow: 0 10px 25px rgba(74, 20, 140, 0.12); /* ★ 悬停时阴影加深 ★ */
+}
+
+/* 确保 .contact-info-grid 仍然使用其原有的 grid 布局 */
+/* 您之前HTML中是内联样式，CSS文件中有 .contact-info-grid 的定义 */
+.contact-info-grid {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */ /* 这是原来的，针对联系卡片可以调整 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 针对联系卡片，minmax可以大一些 */
+    gap: 30px;
+    margin-top: 25px;
+    margin-bottom: 35px;
+}
+
+
+/* 确保 contact-card 内部元素的样式协调 */
+.contact-card h3 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    font-size: 1.5em; /* ★ 调整标题大小 ★ */
+    margin-bottom: 20px; /* ★ 调整标题和下方内容的间距 ★ */
+    color: #5E35B1; /* ★ 统一或根据需要调整标题颜色 ★ */
+}
+.contact-card h3 img {
+    width: 28px; /* ★ 调整图标大小 ★ */
+    height: 28px;
+    margin-right: 10px;
+}
+
+.contact-card .info-item {
+    margin-bottom: 15px; /* ★ 调整信息项间距 ★ */
+    font-size: 1em;    /* ★ 调整信息项字体大小 ★ */
+    line-height: 1.6;
+}
+.contact-card .info-label {
+    font-weight: 600;
+    color: #4A148C; 
+    margin-right: 8px;
+}
+.contact-card .info-item a.highlight { /* 确保链接颜色和高亮效果 */
+    color: #DA70D6; 
+    text-decoration: none; 
+    font-weight: bold;
+}
+.contact-card .info-item a.highlight:hover {
+    text-decoration: underline;
+}
+
+.contact-card p[style*="font-size:0.9em"] { /* 针对底部小字备注 */
+    font-size: 0.85em !important; /* 减小字体，用!important覆盖内联（不推荐但有时直接）*/
+    color: #6A0DAD;
+    margin-top: 15px; /* 增加与上方信息的间距 */
+    line-height: 1.5;
+}
 
 
 footer {
@@ -568,6 +631,92 @@ footer a:hover { color: white; text-decoration: none; }
     box-shadow: 0 6px 18px rgba(83, 140, 89, 0.5);
 }
 
+/* 1. The two-column grid container itself */
+.product-category-grid-two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Force two columns */
+    gap: 12px;                             /* Adjust gap for two columns */
+    margin-top: 20px;                      /* Adjust top margin if needed */
+    margin-bottom: 25px;                   /* Adjust bottom margin if needed */
+}
+
+/* 2. Styles for .category-item-card ONLY when it's inside .product-category-grid-two-columns */
+.product-category-grid-two-columns .category-item-card {
+    /* Override or set specific styles for cards in this two-column grid */
+    padding: 12px 8px;        /* Reduced padding */
+    min-height: 85px;         /* Adjusted min-height */
+}
+
+/* 3. Styles for img inside these specific cards */
+.product-category-grid-two-columns .category-item-card img {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 6px;
+}
+
+/* 4. Styles for p inside these specific cards */
+.product-category-grid-two-columns .category-item-card p {
+    font-size: 0.8em; /* Reduced font size */
+    line-height: 1.25;
+    font-weight: 500; /* Adjusted font weight if needed */
+}
+
+/* 5. Hover effect for these specific cards (optional adjustment) */
+.product-category-grid-two-columns .category-item-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(74, 20, 140, 0.1);
+}
+
+.qr-code-section-card {
+    background-color: #FDFBFF; /* 非常浅的背景色，或 #FFFFFF */
+    padding: 30px 25px;        /* 内边距 */
+    border-radius: 12px;      /* 圆角 */
+    border: 1px solid #E6E6FA; /* 浅色边框 */
+    box-shadow: 0 6px 20px rgba(74, 20, 140, 0.08); /* 初始阴影，营造浮动感 */
+    text-align: center;       /* 内部文本居中 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 过渡效果 */
+    max-width: 500px;         /* 限制最大宽度，使其在内容区居中时更好看 */
+    margin: 20px auto;        /* 上下边距，并水平居中（如果父容器不是flex/grid使其居中的话）*/
+}
+
+/* 可选的悬停效果，如果希望它也像其他卡片一样有反馈 */
+.qr-code-section-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 28px rgba(74, 20, 140, 0.12);
+}
+
+.qr-code-section-card h3 {
+    color: #4A148C;        /* 标题颜色 - 主题深紫色 */
+    margin-top: 0;
+    margin-bottom: 12px;    /* 标题与下方描述的间距 */
+    font-size: 1.5em;       /* 标题字号 */
+    font-weight: 600;
+}
+
+.qr-code-section-card p {
+    color: #5E35B1;        /* 描述文字颜色 - 主题中紫色 */
+    margin-bottom: 20px;    /* 描述与二维码图片的间距 */
+    font-size: 1.05em;      /* 描述文字字号 */
+    line-height: 1.6;
+}
+
+.qr-code-image { /* 二维码图片样式 */
+    width: 170px;             /* 调整二维码图片宽度 */
+    height: 170px;            /* 调整二维码图片高度 */
+    border-radius: 8px;       /* 图片圆角 */
+    box-shadow: 0 4px 10px rgba(74, 20, 140, 0.1); /* 图片轻微阴影 */
+    display: inline-block; /* 确保图片能应用 margin:auto (如果父级是block且text-align:center) 或使其表现更像块 */
+    margin-top: 5px; /* 图片与上方文字的间距 */
+}
+
+/* 如果包含这个二维码的 <section> 本身没有其他内容，可以移除其默认边框和内边距 */
+#wechat-qr-section.section { /* 使用ID提高特异性，或者给section加一个特定类 */
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 35px; /* 调整这个区块与其他区块的间距 */
+}
+
+
 @media (max-width: 768px) {
     header h1 { font-size: 2.2em; }
     header p.subtitle { font-size: 1.05em; }
@@ -582,5 +731,28 @@ footer a:hover { color: white; text-decoration: none; }
 
 @media (max-width: 480px) {
     /* 根据需要在极小屏幕下进一步调整 */
+}
+
+@media (max-width: 360px) { /* Adjust this breakpoint民主 if needed */
+    .product-category-grid-two-columns {
+        grid-template-columns: 1fr; /* Fallback to single column on extremely narrow screens */
+        gap: 15px;
+    }
+
+    /* When it becomes single column, card styles can revert to something similar to default .category-item-card */
+    .product-category-grid-two-columns .category-item-card {
+        padding: 15px 10px; /* Slightly larger padding for single column */
+        min-height: auto;   /* Auto height for single column */
+    }
+
+    .product-category-grid-two-columns .category-item-card img {
+        width: 30px;        /* Slightly larger icon for single column */
+        height: 30px;
+        margin-bottom: 8px;
+    }
+
+    .product-category-grid-two-columns .category-item-card p {
+        font-size: 0.85em;  /* Slightly larger font for single column */
+    }
 }
 /* --- END OF FILE style.css --- */
