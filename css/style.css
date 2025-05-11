@@ -1,0 +1,282 @@
+/* === SUNSHINE GROUP - LANDING PAGE STYLES === */
+/*         (Optimized for Mobile / WeChat Mini Program with Sunshine Effect)        */
+
+/* --- 1. CSS Variables & Global Resets --- */
+:root {
+    --tech-purple-dark: #5A31C5;
+    --tech-purple-medium: #8A5CFE;
+    --tech-purple-light: #E9D5FF;
+    --tech-purple-accent: #A855F7;
+
+    --tech-bg-main: #F8FAFC;
+    --tech-bg-card: #FFFFFF;
+
+    --tech-text-light: #FFFFFF;
+    --tech-text-dark: #1F2937;
+    --tech-text-medium: #4B5563;
+    --tech-text-subtle: #9CA3AF;
+
+    --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    --tech-purple-dark-rgb: 90, 49, 197;
+
+    /* Sunshine colors */
+    --sunshine-glow-center: rgba(255, 255, 220, 0.45); /* Brighter, slightly more opaque center */
+    --sunshine-glow-mid: rgba(255, 255, 200, 0.25);
+    --sunshine-glow-edge: rgba(255, 255, 180, 0);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body.landing-page.theme-tech-purple {
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    background-color: var(--tech-bg-main);
+    color: var(--tech-text-dark);
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- 2. Landing Container --- */
+.landing-container {
+    width: 100%;
+    max-width: 1140px;    /* Max width for larger screens, though less relevant for pure mobile */
+    margin: 0 auto;
+    padding: 0 20px;      /* Consistent horizontal padding */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;         /* Allow container to grow and push footer down */
+}
+
+/* --- 3. Header Section --- */
+.landing-header {
+    text-align: center;
+    padding: 50px 20px 70px; /* Top, Hori, Bottom padding - Bottom padding gives space for main content overlap */
+    margin-bottom: 0;
+    background: linear-gradient(135deg, var(--tech-purple-dark) 0%, var(--tech-purple-medium) 100%);
+    color: var(--tech-text-light);
+    border-radius: 0 0 30px 30px; /* Bottom rounded corners */
+    box-shadow: 0 8px 25px rgba(var(--tech-purple-dark-rgb), 0.2);
+    position: relative;     /* For pseudo-elements and z-index context */
+    overflow: hidden;       /* Clip pseudo-elements */
+}
+/* Decorative pseudo-elements for header background */
+.landing-header::before, 
+.landing-header::after {
+    content: ''; 
+    position: absolute; 
+    border-radius: 50%; 
+    opacity: 0.1; 
+    background: var(--tech-text-light);
+    z-index: 0; /* Behind content */
+}
+.landing-header::before { width: 250px; height: 250px; bottom: -120px; left: -80px; }
+.landing-header::after { width: 150px; height: 150px; top: -60px; right: -60px; opacity: 0.07; }
+
+.group-logo {
+    max-width: 150px;    /* Optimized for mobile */
+    margin: 0 auto 15px auto; /* Center logo */
+    position: relative; z-index: 1; /* Ensure logo is above pseudo-elements */
+}
+
+.group-tagline {
+    font-size: 1.2em;    /* Optimized for mobile */
+    font-weight: 300;
+    margin: 0;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+    position: relative; z-index: 1; /* Ensure tagline is above pseudo-elements */
+}
+
+/* --- 4. Main Content Section --- */
+.landing-main {
+    text-align: center;
+    flex-grow: 1;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    margin-top: -40px;
+    position: relative;
+    z-index: 1;
+}
+
+.main-title {
+    font-size: 2.2em;
+    color: var(--tech-purple-dark);
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.main-subtitle {
+    font-size: 1.05em;
+    color: var(--tech-text-medium);
+    margin-bottom: 40px;
+    padding: 0 10px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- 5. Core Sectors Grid & Cards --- */
+.core-sectors-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.sector-card {
+    background-color: var(--tech-bg-card);
+    border-radius: 16px;
+    padding: 30px 25px;
+    box-shadow: 0 7px 22px rgba(150, 150, 150, 0.08);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sector-card:hover, .sector-card:focus {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 12px 30px rgba(var(--tech-purple-dark-rgb), 0.18),
+                0 4px 10px rgba(0,0,0,0.05);
+    outline: none;
+}
+
+.sector-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: linear-gradient(145deg, var(--tech-purple-medium), var(--tech-purple-accent));
+    box-shadow: 0 5px 10px rgba(var(--tech-purple-dark-rgb), 0.22);
+    transition: background 0.3s ease;
+}
+.sector-card:hover .sector-icon-wrapper,
+.sector-card:focus .sector-icon-wrapper {
+    background: linear-gradient(145deg, var(--tech-purple-accent), var(--tech-purple-medium));
+}
+
+.sector-icon {
+    font-size: 30px;
+    color: var(--tech-text-light);
+}
+
+/* Optional: Different background colors for icons */
+.sector-card.sector-appliances .sector-icon-wrapper { background: var(--tech-purple-dark); }
+.sector-card.sector-youth .sector-icon-wrapper { background: linear-gradient(145deg, #F7971E, #FFBF00); }
+.sector-card.sector-elderly .sector-icon-wrapper { background: linear-gradient(145deg, #43A047, #66BB6A); } /* Зеленый для пожилых */
+.sector-card.sector-vocational .sector-icon-wrapper { background: #007BFF; }
+.sector-card.sector-consulting .sector-icon-wrapper { background: #005A9C; } /* Сине-серый для консалтинга */
+
+
+.sector-name {
+    font-size: 1.4em;
+    color: var(--tech-purple-dark);
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.sector-description {
+    font-size: 0.9em;
+    color: var(--tech-text-medium);
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+/* --- 6. Footer Section --- */
+.landing-footer {
+    text-align: center;
+    padding: 40px 20px 25px;
+    background-color: var(--tech-bg-main); /* ★★★ 与页面主背景色一致或略深一点的灰色 ★★★ */
+    /* 例如：background-color: #EFF2F5; */
+    color: var(--tech-text-medium);      /* ★★★ 默认文字颜色用中灰色 ★★★ */
+    margin-top: 50px;
+    border-top: 5px solid var(--tech-purple-medium); /* ★★★ 使用较粗的品牌亮紫色作为顶部边框，明确区域 ★★★ */
+}
+
+.footer-intro {
+    max-width: 100%;
+    margin: 0 auto 20px auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #D1D5DB; /* 浅灰色分隔线 */
+}
+.footer-intro h3 {
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--tech-purple-dark); /* 标题用品牌深紫色突出 */
+    font-weight: 600;
+}
+.footer-intro p {
+    font-size: 0.95em;
+    line-height: 1.7;
+    color: var(--tech-text-medium); /* 段落文字中灰色 */
+    margin-bottom: 10px;
+}
+.footer-intro p:last-child {
+    margin-bottom: 0;
+}
+
+.copyright {
+    font-size: 0.85em;
+    color: var(--tech-text-subtle); /* 版权信息用更浅的灰色 */
+    margin: 0;
+}
+
+/* --- 7. Responsive Micro-Adjustments --- */
+@media (max-width: 360px) {
+    .landing-container { padding: 0 15px; }
+    .landing-header { padding: 40px 15px 60px; border-radius: 0 0 25px 25px; }
+    .landing-header::after { width:220px; height:220px; top:5%;} /* Уменьшаем размер свечения для очень маленьких экранов */
+    .group-logo { max-width: 130px; }
+    .group-tagline { font-size: 1.1em; }
+    .landing-main { margin-top: -35px; padding-top:25px; }
+    .main-title { font-size: 2em; margin-top: 20px; }
+    .main-subtitle { font-size: 1em; margin-bottom: 30px; }
+    .core-sectors-grid { gap: 20px; }
+    .sector-card { padding: 20px 15px; border-radius:12px; }
+    .sector-icon-wrapper { width: 60px; height: 60px; margin-bottom:15px; border-radius:16px; }
+    .sector-icon { font-size: 26px; }
+    .sector-name { font-size: 1.25em; }
+    .sector-description { font-size:0.85em; }
+    .landing-footer { padding: 35px 15px 20px; }
+    .footer-intro h3 { font-size: 1.25em; }
+}
+
+/* Accessibility: Add visible focus styles for keyboard navigation */
+.sector-card:focus-visible {
+    outline: 2px solid var(--tech-purple-medium);
+    outline-offset: 2px;
+}
+
+/* Optional Sunshine Animation */
+/* @keyframes pulse-sunshine {
+    0% { transform: translateX(-50%) scale(0.95); opacity: 0.3; }
+    50% { transform: translateX(-50%) scale(1.05); opacity: 0.5; }
+    100% { transform: translateX(-50%) scale(0.95); opacity: 0.3; }
+} */
